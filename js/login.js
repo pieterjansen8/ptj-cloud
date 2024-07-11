@@ -58,5 +58,5 @@ async function login(){
     get_in_acc()
 }
 async function get_in_acc(){
-    location.replace("./dashboard/index.html")
+    window.location.replace("./dashboard/index.html")
 }
