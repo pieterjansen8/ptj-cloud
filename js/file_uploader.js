@@ -11,17 +11,16 @@ function hideSidebar(){
 }
 
 async function upload(){
-    const file_name = document.getElementById("file_name")
-    const file = document.getElementById("file-upload").files[0]
-    file_name.innerHTML = "File to upload: "+file.name
     const div = document.getElementById("upload_div")
     const new_div = document.createElement("div")
     new_div.id = "new_div"
     div.appendChild(new_div)
-    new_div.innerHTML = "<button class='button-17' role='button' onclick='real_upload()'>Upload</button>"
+    new_div.innerHTML = "<button type='submit' class='secondary' onclick='real_upload()'>Upload</button>"
 }
 async function real_upload(){
-    const file = document.getElementById("file-upload").files[0]
+    const nw = document.getElementById("new_div")
+    nw.innerHTML = "<progress />"
+    const file = document.getElementById("file").files[0]
     var reader = new FileReader()
     reader.onloadend = async function(){
         const res  = reader.result

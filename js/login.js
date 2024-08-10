@@ -60,7 +60,7 @@ async function login(){
         method: "PATCH",
         body: body
     })
-    localStorage.setItem("email", email)
+    localStorage.setItem("email", hashed_mail)
     localStorage.setItem("password", password)
     localStorage.setItem("logged", true)
     get_in_acc()

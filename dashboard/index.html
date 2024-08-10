@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./dasboard.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  >
 </head>
 <body>
-    <nav>
-        <ul class="sidebar">
-          <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
-          <li><a href="../file_uploader/index.html">upload a file</a></li>
-        </ul>
-        <ul>
-          <li><a href="#">Ptj-cloud</a></li>
-          <li class="hideOnMobile"><a href="../file_uploader/index.html"><img src="../assets/upload.png"></a></li>
-          <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
-        </ul>
-      </nav>
+  <center>
+    <nav style="width: 90%;">
+      <ul>
+        <li><strong>Ptj-cloud</strong></li>
+      </ul>
+      <ul>
+        <li><a href="../file_uploader/">upload a file</a></li>
+      </ul>
+    </nav>
+  </center>
     <div id="files">
     </div>
     <script src="../js/dashboard.js"></script>
