@@ -4,9 +4,12 @@
 <loc>https://ptj-cloud.netlify.app/index.html</loc>
 <lastmod>2024-08-11T00:07:33+00:00</lastmod>
 </url>
+
+<url>
 <loc>https://ptj-cloud.netlify.app/dashboard/index.html</loc>
-<url>
 </url>
-<loc>https://ptj-cloud.netlify.app/file_uploader/index.html</loc>
+
 <url>
+<loc>https://ptj-cloud.netlify.app/file_uploader/index.html</loc>
+</url>
 </urlset>
