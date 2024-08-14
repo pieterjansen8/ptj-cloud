@@ -9,6 +9,25 @@ function setup(){
     if(logged=='true'){
         get_in_acc()
     }
+    const div = document.createElement("div")
+    div.innerHTML = '    <dialog id="news" open>'+
+    '    <article>'+
+    '      <header>'+
+    '        <button aria-label="Close" rel="prev" onclick="remove_dialog()"></button>'+
+    '        <p>'+
+    '          <strong>📰</strong>'+
+    '        </p>'+
+    '      </header>'+
+    '      <p>'+
+    '        ❌im sorry to announce that all accounts are removed.'+
+    '      </p>'+
+    '      <ul>'+
+    '        <li>❓ some account were corrupted and were unable to upload files.</li>'+
+    '        <li>✅ All services are succesfully up again and working!</li>'+
+    '      </ul>'+
+    '    </article>'+
+    '  </dialog>'
+    window.document.body.append(div)
 }
 setup()
 async function get_acc(){
@@ -76,4 +95,7 @@ async function get_in_acc(){
     else{
         window.location.replace("./dashboard/index.html")
     }
+}
+function remove_dialog(){
+    const doc = document.getElementById("news"); doc.remove()
 }
