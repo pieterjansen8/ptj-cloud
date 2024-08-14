@@ -70,7 +70,7 @@ async function get_in_acc(){
     const hashed_mail = hash(email) 
     const valid_email = hashed_mail.replace(".", "")
     const f = await fetch(url+valid_email+".json")
-    if(await f.json()=="null"){
+    if(await f.json()==null){
         alert("Account doesnt exist anymore!")
         localStorage.clear()
         return 
