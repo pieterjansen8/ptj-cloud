@@ -4,7 +4,19 @@ if(logged==null){
 }
 const email = localStorage.getItem("email")
 const valid_email = email.replace(".", "")
-
+async function setup(){
+    const email = localStorage.getItem("email")
+    const f = await fetch(url+email+".json")
+    if(await f.json()==null){
+        alert("Account doesnt exist anymore!")
+        localStorage.clear()
+        return 
+    }
+    else{
+        window.location.replace("./dashboard/index.html")
+    }
+}
+setup()
 function showSidebar(){
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'flex'
