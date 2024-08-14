@@ -24,6 +24,7 @@ function setup(){
     '      <ul>'+
     '        <li>❓ some account were corrupted and were unable to upload files.</li>'+
     '        <li>✅ All services are succesfully up again and working!</li>'+
+    '        <li>🗄️Status: Everything is UP⬆️</li>'
     '      </ul>'+
     '    </article>'+
     '  </dialog>'
