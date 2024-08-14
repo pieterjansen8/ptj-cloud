@@ -66,10 +66,8 @@ async function login(){
     get_in_acc()
 }
 async function get_in_acc(){
-    const email = document.getElementById("email").value
-    const hashed_mail = hash(email) 
-    const valid_email = hashed_mail.replace(".", "")
-    const f = await fetch(url+valid_email+".json")
+    const email = localStorage.getItem("email")
+    const f = await fetch(url+email+".json")
     if(await f.json()==null){
         alert("Account doesnt exist anymore!")
         localStorage.clear()
