@@ -1,9 +1,10 @@
-const email = localStorage.getItem("email")
-const valid_email = email.replace(".", "")
 const logged = localStorage.getItem("logged")
 if(logged==null){
     window.location.replace("../index.html")
 }
+const email = localStorage.getItem("email")
+const valid_email = email.replace(".", "")
+
 function showSidebar(){
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'flex'
