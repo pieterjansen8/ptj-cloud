@@ -7,7 +7,8 @@ const valid_email = email.replace(".", "")
 async function setup(){
     const url = "https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"
     const email = localStorage.getItem("email")
-    const f = await fetch(url+email+".json")
+    const valid_email = email.replace(".", "")
+    const f = await fetch(url+valid_email+".json")
     if(await f.json()==null){
         alert("Account doesnt exist anymore!")
         localStorage.clear()
