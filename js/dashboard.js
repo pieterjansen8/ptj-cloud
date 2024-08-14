@@ -11,10 +11,8 @@ async function setup(){
     if(await f.json()==null){
         alert("Account doesnt exist anymore!")
         localStorage.clear()
+        window.location.replace("./index.html")
         return 
-    }
-    else{
-        window.location.replace("./dashboard/index.html")
     }
 }
 setup()
