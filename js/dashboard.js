@@ -1,4 +1,5 @@
 const logged = localStorage.getItem("logged")
+const { createClient } = supabase
 if(logged==null){
     window.location.replace("../index.html")
 }
@@ -47,7 +48,9 @@ async function show_files(){
         img.src = "../assets/download.png"
         download_a.append(img)
         download_a.id = file_num_now
-        download_a.href = json.file
+        download_a.onclick = function (){
+            download_file(json)
+        }
         div.append(a)
         div.append(download_a)
         files_div.appendChild(div)
@@ -55,21 +58,20 @@ async function show_files(){
 }
 show_files() 
 async function download_file(b){
-    const id = b.id 
-    const arr = new Array()
-    arr.push(id)
-    console.log("https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"+valid_email+"/files/"+arr[0]+".json")
-    const get = await fetch("https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"+valid_email+"/files/"+arr[0]+".json")
-    const json = await get.json()
-    const base_64 = json.file
-    const type = json.type
-    const blob = dataURItoBlob(base_64)
-    const download = window.URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = download
-    a.download = json.name
-    a.click()
-    a.remove()
+    const _supabase = createClient('https://jupjgyhsopjypuwltlhd.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1cGpneWhzb3BqeXB1d2x0bGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwMDg2MDUsImV4cCI6MjAzOTU4NDYwNX0.y3NooSMu4rGYEytT8Yrb1tAV2XfQ9aGGC5IKZPWU8RU')
+    const { data, error } = await _supabase
+        .storage
+        .from('files')
+        .download(valid_email+"/"+b.name)
+    if(error==null){
+        console.log(data)
+    }
+    else{
+        console.log(error)
+        return
+    }
+    const win = window.URL.createObjectURL(data)
+    window.open(win)
 }
 function dataURItoBlob(dataURI) {
     // convert base64/URLEncoded data component to raw binary data held in a string
