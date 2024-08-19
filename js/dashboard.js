@@ -70,7 +70,7 @@ async function download_file(b){
         console.log(error)
         return
     }
-    const win = window.URL.createObjectURL(data)
+        const win = window.URL.createObjectURL(data)
     window.open(win)
 }
 function dataURItoBlob(dataURI) {
