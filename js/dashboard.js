@@ -47,9 +47,7 @@ async function show_files(){
         img.src = "../assets/download.png"
         download_a.append(img)
         download_a.id = file_num_now
-        download_a.onclick = function(){
-            download_file(this)
-        }
+        download_a.href = json.file
         div.append(a)
         div.append(download_a)
         files_div.appendChild(div)
