@@ -1,6 +1,5 @@
 const url = "https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"
 const { createClient } = supabase
-const {dotenv_config} = dotenv 
 
 
 console.log(process.env.APIKEY)
