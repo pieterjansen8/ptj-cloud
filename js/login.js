@@ -2,7 +2,6 @@ const url = "https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.
 const { createClient } = supabase
 
 
-console.log(process.env.APIKEY)
 function hash(string) {
     var str = CryptoJS.SHA256(string)
     var to_str =str.toString()
