@@ -41,6 +41,7 @@ async function show_files(){
         div.style = "margin-top: 35px;"
         const a = document.createElement("a")
         const text = document.createTextNode(file)
+        a.style = "cursor:pointer;"
         a.append(text)
         const download_a = document.createElement("a")
         download_a.className = "right"
