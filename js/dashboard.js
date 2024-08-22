@@ -40,8 +40,12 @@ async function show_files(){
         const div = document.createElement("div")
         div.style = "margin-top: 35px;"
         const a = document.createElement("a")
+
         const text = document.createTextNode(file)
         a.style = "cursor:pointer;"
+        a.onclick = function(){
+            get_url(json)
+        }
         a.append(text)
         const download_a = document.createElement("a")
         download_a.className = "right"
@@ -74,6 +78,21 @@ async function download_file(b){
         const win = window.URL.createObjectURL(data)
     window.open(win)
 }
+async function get_url(b){
+    const top_header = document.getElementById("top-brand")
+    const _supabase = createClient('https://jupjgyhsopjypuwltlhd.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1cGpneWhzb3BqeXB1d2x0bGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwMDg2MDUsImV4cCI6MjAzOTU4NDYwNX0.y3NooSMu4rGYEytT8Yrb1tAV2XfQ9aGGC5IKZPWU8RU')
+    const { data, error } = await _supabase
+        .storage
+        .from('files')
+        .createSignedUrl(valid_email+"/"+b.name, 86400)
+    navigator.clipboard.writeText(data.signedUrl);
+    top_header.innerHTML = "Url coppied to clipboard! stays valid for 24 hours!"
+    setTimeout(() => {
+        top_header.innerHTML = "Ptj-cloud"
+    }, 4000);
+}
+
+
 function dataURItoBlob(dataURI) {
     // convert base64/URLEncoded data component to raw binary data held in a string
     var byteString;
