@@ -80,13 +80,13 @@ async function download_file(b){
 }
 async function get_url(b){
     const top_header = document.getElementById("top-brand")
+    top_header.innerHTML = "Url coppied to clipboard! stays valid for 24 hours!"
     const _supabase = createClient('https://jupjgyhsopjypuwltlhd.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1cGpneWhzb3BqeXB1d2x0bGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwMDg2MDUsImV4cCI6MjAzOTU4NDYwNX0.y3NooSMu4rGYEytT8Yrb1tAV2XfQ9aGGC5IKZPWU8RU')
     const { data, error } = await _supabase
         .storage
         .from('files')
         .createSignedUrl(valid_email+"/"+b.name, 86400)
     navigator.clipboard.writeText(data.signedUrl);
-    top_header.innerHTML = "Url coppied to clipboard! stays valid for 24 hours!"
     setTimeout(() => {
         top_header.innerHTML = "Ptj-cloud"
     }, 4000);
