@@ -1,7 +1,6 @@
 const url = "https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"
 const { createClient } = supabase
 
-
 function hash(string) {
     var str = CryptoJS.SHA256(string)
     var to_str =str.toString()
@@ -69,7 +68,8 @@ async function login(){
             return
         }
     }
-    const _supabase = createClient('https://jupjgyhsopjypuwltlhd.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1cGpneWhzb3BqeXB1d2x0bGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwMDg2MDUsImV4cCI6MjAzOTU4NDYwNX0.y3NooSMu4rGYEytT8Yrb1tAV2XfQ9aGGC5IKZPWU8RU')
+    const API_KEY = API_back()
+    const _supabase = createClient('https://jupjgyhsopjypuwltlhd.supabase.co', API_KEY)
     const { data, error } = await _supabase.storage.from('files').upload(valid_email+'/welcome.txt', {
         cacheControl: '3600',
         upsert: false
