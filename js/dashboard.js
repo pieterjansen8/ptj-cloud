@@ -31,6 +31,7 @@ async function show_files(){
     const files_div = document.getElementById("files")
     const f = await fetch("https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"+valid_email+"/files.json")
     const json = await f.json()
+    const app_div = document.createElement("div")
     for(let i =  0; i < json.num; i++){
         const file_num_now = i + 1 
         const f = await fetch("https://pieterapi-c8b9e-default-rtdb.europe-west1.firebasedatabase.app/"+valid_email+"/files/"+file_num_now+".json")
@@ -58,8 +59,9 @@ async function show_files(){
         }
         div.append(a)
         div.append(download_a)
-        files_div.appendChild(div)
+        app_div.append(div)
     }
+    files_div.appendChild(app_div)
 }
 show_files() 
 async function download_file(b){
